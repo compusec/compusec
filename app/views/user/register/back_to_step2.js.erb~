@@ -1,0 +1,5 @@
+$("#form_register").html("<%= escape_javascript(render(:partial => "step2")) %>");
+$("#td_last_name").css("background", "green")
+$("#td_first_name").css("background", "green")
+$("#td_middle_name").css("background", "green")
+$("#next_to_step3").focus();

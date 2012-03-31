@@ -1,0 +1,80 @@
+<%= form_tag({:action => "step3"}, :remote => true) do %>
+  <table>
+    <th>
+      ШАГ 3
+    </th>
+    <tr>
+      <td>
+        <label class="label_text">
+          Факультет:
+        </label>
+      </td>
+
+      <td id = "td_faculty">
+	<%= select_tag(:faculty, options_from_collection_for_select(Faculty.all, :id, :name, session[:faculty]), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Кафедра:
+        </label>
+      </td>
+
+      <td id = "td_chair">
+        <div id="chair">
+	  <%= render :partial => "chair", :locals => {:chairs => Chair.all } %>
+	</div>
+        
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Воинское звание:
+        </label>
+      </td>
+
+      <td id = "td_military_rank">
+	<%= select_tag(:military_rank, options_from_collection_for_select(MilitaryRank.all, :id, :name, session[:military_rank]), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Научное звание:
+        </label>
+      </td>
+
+      <td id = "td_scientific_rank">
+	<%= select_tag(:scientific_rank, options_from_collection_for_select(ScientificRank.all, :id, :name, session[:scientific_rank]), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Должность:
+        </label>
+      </td>
+
+      <td id = "td_post">
+	<%= select_tag(:post, options_from_collection_for_select(Post.all, :id, :name, session[:post]), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <%= register_text_field(:phone, "Мобильный телефон:", false, "85555555555") %>
+    <%= register_text_field(:room, "Комната:") %>
+
+    <tr>
+      <td colspan = "2">
+        <%= submit_tag "Назад", :id => "back_to_step2", :class => "submit_button"%>
+        <%= submit_tag "Завершить", :id => "next_to_step4", :class => "submit_button"%>
+      </td>
+    </tr>
+  </table>
+<% end %>
+

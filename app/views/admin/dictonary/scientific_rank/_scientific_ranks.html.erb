@@ -1,0 +1,31 @@
+<table class="dictionary_table">
+  <tr class="title_string">
+    <td>
+      Наименование
+    </td>
+  </tr>
+  <% for scientific_rank in @scientific_ranks %>
+    <tr>
+      <td>
+        <%= scientific_rank.name %>
+      </td>
+      <td>
+        <%= button_to("удалить", {:controller => '/admin/dictonary/scientific_rank', :action => 'destroy', :id => scientific_rank.id}, :class => "tool_button")%>
+      </td>
+      <td>
+        <%= button_to("изменить", {:controller => '/admin/dictonary/scientific_rank', :action => 'edit', :id => scientific_rank.id}, :class => "tool_button", :method => :get)%>
+      </td>
+    <tr>
+  <% end %>
+  <tr>
+    <td>
+      <%= button_to("добавить", {:controller => '/admin/dictonary/scientific_rank', :action => 'new'}, :class => "admin_button small", :method => :get) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to("назад", { :controller => '/admin/dictonary', :action => 'index' }, :class => "return_link") %>
+    </td>
+  </tr>
+</table>
+

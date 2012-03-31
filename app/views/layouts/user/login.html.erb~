@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Регистрация</title>
+  <%= javascript_include_tag "/assets/jquery.js", "/assets/jquery_ujs.js", "/assets/user/register" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield %>
+
+</body>
+</html>

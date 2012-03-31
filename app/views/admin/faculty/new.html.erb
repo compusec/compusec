@@ -1,0 +1,26 @@
+<%= form_tag({:action => "new"}) do %>
+  <table>
+    <tr>
+      <td>
+        <label class="label_text">
+          Название: *
+        </label>
+      </td>
+    
+      <td id = "td_name" <%= "style = 'background: red" if flash[:name] %> >
+        <%= text_field_tag :name, params[:name], :class => "text_field" %>
+      </td>
+
+      <td id = "error_name" style="color: red;">
+	<%= flash[:name] if flash[:name] %>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan = "2">
+        <%= submit_tag "добавить", :class => "admin_button small" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+<%= link_to("назад", { :controller => 'admin/faculty', :action => 'index' }, :class => "return_link") %>

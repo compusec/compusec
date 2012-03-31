@@ -1,0 +1,67 @@
+$("#form_register").html("<%= escape_javascript(render(:partial => "step2")) %>");
+if ($("#last_name").val())
+{
+  var reg = /^([а-я])+$/i;
+  var val = $("#last_name").val()
+  if (reg.test(val))
+  {
+    $("#td_last_name").css("background", "green");
+  }
+  else
+  {
+    $("#td_last_name").css("background", "red");
+    $("#error_last_name").text("фамилия введена некорректно");
+  }
+}
+if ($("#first_name").val())
+{
+  var reg = /^([а-я])+$/i;
+  var val = $("#first_name").val()
+  if (reg.test(val))
+  {
+    $("#td_first_name").css("background", "green");
+  }
+  else
+  {
+    $("#td_first_name").css("background", "red");
+    $("#error_first_name").text("имя введено некорректно");
+  }
+}
+if ($("#middle_name").val())
+{
+  var reg = /^([а-я])+$/i;
+  var val = $("#middle_name").val()
+  if (reg.test(val))
+  {
+    $("#td_middle_name").css("background", "green");
+  }
+  else
+  {
+    $("#td_middle_name").css("background", "red");
+    $("#error_middle_name").text("отчество введено некорректно");
+  }
+}
+if (!$("#last_name").val())
+{
+  $("#last_name").focus();
+}
+else if (!$("#first_name").val())
+{
+  $("#first_name").focus();
+}
+else if (!$("#middle_name").val())
+{
+  $("#middle_name").focus();
+}
+if ($("#td_last_name").css("backgroundColor") == "rgb(255, 0, 0)")
+{
+  $("#last_name").focus();
+}
+else if ($("#td_first_name").css("backgroundColor") == "rgb(255, 0, 0)")
+{
+  $("#first_name").focus();
+}
+else if ($("#td_middle_name").css("backgroundColor") == "rgb(255, 0, 0)")
+{
+  $("#middle_name").focus();
+}

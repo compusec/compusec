@@ -1,0 +1,197 @@
+<%= form_tag({:action => "edit"}, :id => params[:id]) do %>
+  <table>
+    <tr>
+      <td>
+        <label class="label_text">
+          Email: *
+        </label>
+      </td>
+    
+      <td id = "td_email" <%= "style = 'background: red'" if flash[:email] %> >
+        <%= text_field_tag :email, @user.email, :class => "text_field" %>
+      </td>
+
+      <td id = "error_email" style="color: red;">
+	<%= flash[:email] if flash[:email] %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <label class="label_text">
+          Пароль: *
+        </label>
+      </td>
+    
+      <td id = "td_password" <%= "style = 'background: red'" if flash[:password] %> >
+        <%= text_field_tag :password, @user.password, :class => "text_field" %>
+      </td>
+        
+      <td id = "error_password" style="color: red;">
+	<%= flash[:password] if flash[:password] %>	
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Фамилия: *
+        </label>
+      </td>
+    
+      <td id = "td_last_name" <%= "style = 'background: red'" if flash[:last_name] %> >
+        <%= text_field_tag :last_name, @user.last_name, :class => "text_field" %>
+      </td>
+
+      <td id = "error_last_name" style="color: red;">
+	    <%= flash.now[:last_name] if flash.now[:last_name] %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Имя: *
+        </label>
+      </td>
+    
+      <td id = "td_first_name" <%= "style = 'background: red'" if flash[:first_name] %> >
+        <%= text_field_tag :first_name, @user.first_name, :class => "text_field" %>
+      </td>
+
+      <td id = "error_first_name" style="color: red;">
+	    <%= flash.now[:first_name] if flash.now[:first_name] %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Отчество: *
+        </label>
+      </td>
+    
+      <td id = "td_middle_name" <%= "style = 'background: red'" if flash[:middle_name] %> >
+        <%= text_field_tag :middle_name, @user.middle_name, :class => "text_field" %>
+      </td>
+
+      <td id = "error_middle_name" style="color: red;">
+        <%= flash.now[:middle_name] if flash.now[:middle_name] %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Пол:
+        </label>
+      </td>
+    
+      <td id = "td_sex">
+        <%= select_tag(:sex, options_from_collection_for_select(Sex.all, :id, :name, @user.sex_id), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Факультет:
+        </label>
+      </td>
+
+      <td id = "td_faculty">
+	<%= select_tag(:faculty, options_from_collection_for_select(Faculty.all, :id, :name, (@user.chair)?(@user.chair.faculty_id):(nil)), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Кафедра:
+        </label>
+      </td>
+
+      <td id = "td_chair">
+        <div id="chair">
+	  <%= render :partial => "chair", :locals => {:chairs => Chair.all } %>
+	</div>
+        
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Воинское звание:
+        </label>
+      </td>
+
+      <td id = "td_military_rank">
+	<%= select_tag(:military_rank, options_from_collection_for_select(MilitaryRank.all, :id, :name, @user.military_rank_id), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Научное звание:
+        </label>
+      </td>
+
+      <td id = "td_scientific_rank">
+	<%= select_tag(:scientific_rank, options_from_collection_for_select(ScientificRank.all, :id, :name, @user.scientific_rank_id), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Должность:
+        </label>
+      </td>
+
+      <td id = "td_post">
+	<%= select_tag(:post, options_from_collection_for_select(Post.all, :id, :name, @user.post_id), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Телефон:
+        </label>
+      </td>
+    
+      <td id = "td_phone" <%= "style = 'background: red'" if flash[:phone] %> >
+        <%= text_field_tag :phone, @user.phone %>
+      </td>
+
+      <td id = "error_phone" style="color: red;">
+	<%= flash.now[:phone] if flash.now[:phone] %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="label_text">
+          Комната:
+        </label>
+      </td>
+    
+      <td id = "td_room" <%= "style = 'background: red'" if flash[:room] %> >
+        <%= text_field_tag :room, @user.room %>
+      </td>
+
+      <td id = "error_room" style="color: red;">
+	<%= flash.now[:room] if flash.now[:room] %>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan = "2">
+        <%= submit_tag "изменить" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+<%= link_to("назад", { :controller => 'admin/user', :action => 'index' }) %>

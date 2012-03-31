@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Кафедры</title>
+  <%= javascript_include_tag "/assets/jquery.js", "/assets/jquery_ujs.js", "/assets/admin/chair" %>
+  <%= stylesheet_link_tag "application"%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id = "logout">
+  <%= button_to("Выход", {:controller => "/user/login", :action => "logout"}, :class => "exit_button")%>
+</div>
+<%= yield %>
+<%= button_to("перезагрузить проект", {:controller => '/project', :action => 'restart'}, :class => "restart_button") %>
+</body>
+</html>

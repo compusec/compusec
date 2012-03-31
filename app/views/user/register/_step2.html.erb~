@@ -1,0 +1,30 @@
+<%= form_tag({:action => "step2"}, :remote => :true) do %>
+  <table>
+    <th>
+      ШАГ 2
+    </th>
+
+    <%= register_field(:last_name, "Фамилия", :mark => true) %>
+    <%= register_field(:first_name, "Имя", :mark => true) %>
+    <%= register_field(:middle_name, "Отчество", :mark => true) %>
+
+    <tr>
+      <td>
+        <label>Пол:</label>
+      </td>
+    
+      <td id = "td_sex">
+        <%= select_tag(:sex, options_from_collection_for_select(Sex.all, :id, :name, session[:sex]), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td <td colspan = "2">
+        <%= submit_tag "Назад", :id => "back_to_step1"%>
+	<%= submit_tag "Далее", :id => "next_to_step3"%>
+        <%= submit_tag "Завершить", :id => "next_to_step3"%>
+      </td>
+    </tr>
+  </table>
+<% end %>
+

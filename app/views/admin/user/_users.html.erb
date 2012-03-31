@@ -1,0 +1,60 @@
+<table cellspacing="8">
+  <tr class="title_string">
+    <td>
+         Логин
+    </td>
+    <td>
+         Пароль
+    </td>
+    <td>
+         Фамилия
+    </td>
+    <td>
+         Имя
+    </td>
+    <td>
+         Отчество
+    </td>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= user.password %>
+      </td>
+      <td>
+        <%= user.last_name %>
+      </td>
+      <td>
+        <%= user.first_name %>
+      </td>
+      <td>
+        <%= user.middle_name %>
+      </td>
+      <td>
+        <%= button_to("показать", { :controller => 'admin/user', :action => 'show', :id => user}, :class => "tool_button", :method => :get) %>
+      </td>
+      <td>
+        <%= button_to("удалить", { :controller => 'admin/user', :action => 'destroy', :id => user}, :class => "tool_button" , :method => :delete) %>
+      </td>
+      <td>
+        <%= button_to("изменить", { :controller => 'admin/user', :action => 'edit', :id => user }, :class => "tool_button", :method => :get) %>
+      </td>
+      <% unless user.activated %>
+        <td>
+          <% if user.id != 1 %>
+            <%= button_to("активировать", { :controller => 'admin/user', :action => 'activate', :id => user }, :class => "tool_button") %>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+  <tr>
+    <td>
+      <%= button_to("добавить", { :controller => 'admin/user', :action => 'new'}, :class => "admin_button small", :method => :get) %>
+    </td>
+  </tr>
+</table>
+<%= link_to("назад", { :controller => '/pages/admin', :action => 'index' }, :class => "return_link") %>

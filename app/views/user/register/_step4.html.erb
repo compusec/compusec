@@ -1,0 +1,6 @@
+<% if is_admin %>
+Поздравляем с успешной регистрацией, теперь вы являетесь администратором <%= link_to("сайта", {:controller => "/pages/admin", :action => "index"}) %>
+<% else %>
+Ваша заявка отправлена администратору <%= link_to("сайта", {:controller => "/user/login", :action => "login"}) %>
+<% end %>
+

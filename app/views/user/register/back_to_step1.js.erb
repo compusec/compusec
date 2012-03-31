@@ -1,0 +1,5 @@
+$("#form_register").html("<%= escape_javascript(render(:partial => "step1")) %>");
+$("#email").css("background", "rgba(0, 255, 0, 0.2)")
+$("#password").css("background", "rgba(0, 255, 0, 0.2)")
+$("#password_confirmation").css("background", "rgba(0, 255, 0, 0.2)")
+$("#next_to_step2").focus();

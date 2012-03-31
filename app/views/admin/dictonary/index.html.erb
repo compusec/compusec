@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <td>
+      <%= button_to("пол", { :controller => '/admin/dictonary/sex', :action => 'index' }, :class => "admin_button medium", :method => 'get')%>
+    </td>
+    <td>
+      <label class="description">Просмотр и редактирование словаря полов</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= button_to("воинское звание", { :controller => '/admin/dictonary/military_rank', :action => 'index' }, :class => "admin_button medium", :method => 'get')%>
+    </td>
+    <td>
+      <label class="description">Просмотр и редактирование словаря воинских званий</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= button_to("научное звание", { :controller => '/admin/dictonary/scientific_rank', :action => 'index' }, :class => "admin_button medium", :method => 'get')%>
+    </td>
+    <td>
+      <label class="description">Просмотр и редактирование словаря научных званий</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= button_to("должность", { :controller => '/admin/dictonary/post', :action => 'index' }, :class => "admin_button medium", :method => 'get')%>
+    </td>
+    <td>
+      <label class="description">Просмотр и редактирование словаря должностей</label>
+    </td>
+  </tr>
+</table>
+<%= link_to("назад", { :controller => 'pages/admin', :action => 'index'}, :class => "return_link")%>
+

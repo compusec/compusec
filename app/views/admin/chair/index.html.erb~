@@ -1,0 +1,3 @@
+
+<%= link_to("назад", { :controller => '/pages/admin', :action => 'index' }) %>
+####назад - переделать

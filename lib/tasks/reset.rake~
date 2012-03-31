@@ -1,0 +1,10 @@
+namespace :reset do
+    desc "Stop chat server"
+    task :stop do
+        puts "EventMachine stop"       
+        f = File.open(File.dirname("__FILE__")+"../../pid.pid","r")
+        pid = f.read().to_i
+        f.close() 
+        Process.kill(9,pid)
+    end
+end

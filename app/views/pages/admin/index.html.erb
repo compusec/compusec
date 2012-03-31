@@ -1,0 +1,29 @@
+<h2>
+  Панель администрирования
+  </h2>
+<table>
+  <tr>
+    <td>
+      <%= button_to("Пользователи", { :controller => '/admin/user', :action => 'index' }, :method => 'get', :class => "admin_button medium")%>
+    </td>
+    <td>
+      <label class="description">Просмотр и редактирование списка пользователей</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= button_to("Факультеты", { :controller => '/admin/faculty', :action => 'index' }, :method => 'get', :class => "admin_button medium")%>
+    </td>
+    <td>
+      <label class="description">Просмотр и редактирование списка факультетов</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= button_to("Словари", { :controller => '/admin/dictonary', :action => 'index' }, :method => 'get', :class => "admin_button medium")%>
+    </td>
+    <td>
+      <label class="description">Просмотр и редактирование словарей</label>
+    </td>
+  </tr>
+</table>

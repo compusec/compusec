@@ -1,0 +1,31 @@
+<table class="dictionary_table">
+  <tr class="title_string">
+    <td>
+      Наименование
+    </td>
+  </tr>
+  <% for post in @posts %>
+    <tr>
+      <td>
+        <%= post.name %>
+      </td>
+      <td>
+        <%= button_to("удалить", {:controller => '/admin/dictonary/post', :action => 'destroy', :id => post.id}, :class => "tool_button")%>
+      </td>
+      <td>
+        <%= button_to("изменить", {:controller => '/admin/dictonary/post', :action => 'edit', :id => post.id}, :class => "tool_button", :method => :get)%>
+      </td>
+    <tr>
+  <% end %>
+  <tr>
+    <td>
+      <%= button_to("добавить", {:controller => '/admin/dictonary/post', :action => 'new'}, :class => "admin_button small", :method => :get) %>
+    </td>
+  </tr>
+  <tr>
+  <td>
+    <%= link_to("назад", { :controller => '/admin/dictonary', :action => 'index' }, :class => "return_link") %>
+  </td>
+</tr>
+</table>
+

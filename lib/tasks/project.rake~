@@ -1,0 +1,7 @@
+namespace :project do
+  desc "Reset Project"
+  task :reset => "environment" do 
+    Rake::Task["db:migrate"].execute(0)
+    Rake::Task["db:migrate"].execute
+  end 
+end

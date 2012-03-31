@@ -1,0 +1,27 @@
+$("#form_register").html("<%= escape_javascript(render(:partial => "step3")) %>");
+if ($("#phone").val())
+{
+  reg = /^[0-9]{11}$/i
+  var val = $("#phone").val()
+  if (reg.test(val))
+  {
+    $("#phone").css("background", "rgba(0, 255, 0, 0.2)");
+  }
+  else
+  {
+    $("#phone").css("background", "rgba(255, 0, 0, 0.2)");
+    $("#error_phone").text("некорректный номер телефона");
+  }
+}
+if ($("#room").val())
+{
+  $("#room").css("background", "rgba(0, 255, 0, 0.2)")
+}
+if ($("#phone").css("backgroundColor") == "rgba(255, 0, 0, 0.2)")
+{
+  $("#phone").focus();
+}
+else if ($("#room").css("backgroundColor") == "rgba(255, 0, 0, 0.2)")
+{
+  $("#room").focus();
+}

@@ -1,0 +1,31 @@
+<table cellspacing="10">
+  <tr class="title_string">
+    <td>
+      <%= @user.email %>
+    </td>
+    <td>
+      <%= @user.password %>
+    </td>
+    <td>
+      <%= @user.last_name %>
+    </td>
+    <td>
+      <%= @user.first_name %>
+    </td>
+    <td>
+      <%= @user.middle_name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= button_to("удалить", { :controller => '/admin/user', :action => 'destroy' }, :class => "admin_button small", :id => @user) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to("назад", { :controller => '/admin/user', :action => 'index' }, :class => "return_link") %>
+    </td>
+  </tr>
+</table>
+
+

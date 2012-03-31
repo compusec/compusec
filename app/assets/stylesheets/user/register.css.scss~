@@ -1,0 +1,8 @@
+// Place all the styles related to the user/register controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*:focus {outline: none;}
+
+body{
+  opacity: 0.5;
+}

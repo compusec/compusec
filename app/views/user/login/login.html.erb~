@@ -1,0 +1,44 @@
+<%= form_tag({:action => "login"}) do %>
+    <table>
+      <th>
+        Вход
+      </th>
+      <tr>
+        <td>
+          <label>
+            Email:
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td id = "td_email" <%= "style = 'background: red'" if flash[:email] %> >
+          <%= text_field_tag :email, params[:email] %>
+        </td>
+        <td id = "error_email" style = "color: red;">
+          <%= flash[:email] if flash[:email] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Пароль:</label>
+        </td>
+      </tr>
+      <tr>
+        <td id = "td_password" <%= "style = 'background: red'" if flash[:password] %> >
+          <%= password_field_tag :password, params[:password] %>
+        </td>
+        <td id = "error_password" style = "color: red;">
+          <%= flash[:password] if flash[:password] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= submit_tag "Войти", :id => "login_submit"%>
+        </td>
+      </tr>
+    </table>
+    <div class = "offer">
+      Если вы по каким-то причинам не зарегистрированы, то можете
+      <%= link_to("сделать сейчас.", { :controller => "/user/register", :action => "step1"}) %>
+    </div>
+<% end %>

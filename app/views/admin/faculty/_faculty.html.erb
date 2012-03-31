@@ -1,0 +1,23 @@
+<table>
+  <th>
+    Факультет
+  </th>
+  <tr>
+    <td style="font-size: 20px;">
+      <%= @faculty.name %>
+      <%= button_to("Кафедры", {:controller => 'admin/chair', :action => 'index', :id => @faculty})  %>
+    </td>
+  <tr>
+  <tr>
+    <td>
+      <%= button_to("удалить", { :controller => '/admin/faculty', :action => 'destroy' }, :class => "admin_button small", :id => @faculty) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to("назад", { :controller => '/admin/faculty', :action => 'index' }, :class => "return_link") %>
+    </td>
+  </tr>
+</table>
+
+

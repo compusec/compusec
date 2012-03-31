@@ -1,0 +1,23 @@
+module User::RegisterHelper
+  def register_text_field(name, text, mark = false)
+    color = (flash[name])? ("rgba(255, 0, 0, 0.2)"): ("white")
+    message = flash[name] if flash[name]
+    text = (mark)? ("#{text}: *"): ("#{text}:")
+    content_tag(:tr,
+      content_tag(:td, content_tag(:label, text)) <<
+      content_tag(:td, text_field_tag(name, session[name], :style => "background: #{color}"))  <<
+      content_tag(:td, message, :style => "color: red;", :id => "error_#{name}")
+    )
+  end
+  def register_password_field(name, text, mark = false)
+    color = (flash[name])? ("rgba(255, 0, 0, 0.2)"): ("white")
+    message = flash[name] if flash[name]
+    text = (mark)? ("#{text}: *"): ("#{text}:")
+    content_tag(:tr,
+                content_tag(:td, content_tag(:label, text)) <<
+                    content_tag(:td, password_field_tag(name, session[name], :style => "background: #{color}"))  <<
+                    content_tag(:td, message, :style => "color: red;", :id => "error_#{name}")
+    )
+  end
+end
+

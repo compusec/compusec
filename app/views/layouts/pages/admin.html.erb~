@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Администрирование</title>
+  <%= javascript_include_tag "/assets/jquery.js", "/assets/jquery_ujs.js", "/assets/user/login" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield %>
+
+</body>
+</html>

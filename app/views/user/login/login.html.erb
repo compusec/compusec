@@ -1,0 +1,18 @@
+<%= form_tag({:action => "login"}) do %>
+    <table>
+      <th class="title">
+        Вход
+      </th>
+      <%= login_text_field(:email, "Email:", "введите email") %>
+      <%= login_password_field(:password, "Пароль:", "введите пароль") %>
+      <tr>
+        <td>
+          <%= submit_tag "Войти", :id => "login_submit", :class => "submit_button"%>
+        </td>
+      </tr>
+    </table>
+    <div class = "offer">
+      Если вы по каким-то причинам не зарегистрированы, то можете
+      <%= link_to("сделать это сейчас.", { :controller => "/user/register", :action => "step1"}) %>
+    </div>
+<% end %>

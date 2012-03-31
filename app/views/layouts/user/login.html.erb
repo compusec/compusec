@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Авторизация</title>
+  <%= javascript_include_tag "/assets/jquery.js", "/assets/jquery_ujs.js", "/assets/user/login" %>
+  <%= stylesheet_link_tag "application", "user/login"  %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield %>
+<%= button_to("перезагрузить проект", {:controller => '/project', :action => 'restart'}, :class => "restart_button") %>
+</body>
+</html>

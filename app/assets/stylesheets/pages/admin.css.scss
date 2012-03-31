@@ -1,0 +1,45 @@
+// Place all the styles related to the pages/admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+ .admin_button
+{
+  background-color: #d3d3d3;
+  font-family: verdana, sans-serif;
+}
+
+.exit_button
+{
+  position: fixed;
+  top: 40px;
+  right: 5px;
+  background: #000000;
+  color: #ffffff;
+  height: 30px;
+  font-family: verdana, sans-serif;
+  font-style: bold;
+  font-size: 20px;
+}
+
+.tool_button
+{
+  height: 15px;
+  width: 60px;
+  font-size: 10px;
+  font-family: verdana, sans-serif;
+}
+.return_link
+{
+  float: left;
+}
+.title_string, .return_link
+{
+  font-style: bold;
+  font-size: 20px;
+  font-family: verdana, sans-serif;
+}
+
+.dictionary_table
+{
+  font-size: 15px;
+  border-spacing: 8px;
+}

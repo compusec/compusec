@@ -1,0 +1,1 @@
+<%= select_tag(:chair, options_from_collection_for_select(chairs, :id, :name, (@user)?(@user.chair_id):(params[:chair])), :prompt => "выберите") %>

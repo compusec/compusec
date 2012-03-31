@@ -1,0 +1,29 @@
+<table class="dictionary_table">
+  <tr class="title_string">
+    <td>
+      Название
+    </td>
+  </tr>
+  <% for chair in @chairs %>
+    <tr>
+      <td>
+        <%= chair.name %>
+      </td>
+      <td>
+        <%= button_to("показать", { :controller => 'admin/chair', :action => 'show', :id => chair }, :class => "tool_button", :method => :get) %>
+      </td>
+      <td>
+        <%= button_to("удалить", { :controller => 'admin/chair', :action => 'destroy', :id => chair }, :class => "tool_button", :method => :delete) %>
+      </td>
+      <td>
+        <%= button_to("изменить", { :controller => 'admin/chair', :action => 'edit', :id => chair }, :class => "tool_button", :method => :get) %>
+      </td>
+    <tr>
+  <% end %>
+  <tr>
+    <td>
+      <%= button_to("добавить", { :controller => '/admin/chair', :action => 'new' }, :class => "admin_button small", :method => :get) %>
+    </td>
+  </tr>
+</table>
+

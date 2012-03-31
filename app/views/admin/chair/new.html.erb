@@ -1,0 +1,38 @@
+<%= form_tag({:action => "new"}) do %>
+  <table>
+    <tr>
+      <td>
+        <label>
+          Название: *
+        </label>
+      </td>
+    
+      <td id = "td_name" <%= "style = 'background: red'" if flash[:name] %> >
+        <%= text_field_tag :name, params[:name] %>
+      </td>
+
+      <td id = "error_name" style="color: red;">
+	<%= flash[:name] if flash[:name] %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label>
+          Факультет:
+        </label>
+      </td>
+
+      <td id = "td_faculty">
+	<%= select_tag(:faculty, options_from_collection_for_select(Faculty.all, :id, :name, params[:faculty]), :prompt => "выберите") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan = "2">
+        <%= submit_tag "добавить" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+<%= link_to("назад", { :controller => 'admin/user', :action => 'index' }) %>

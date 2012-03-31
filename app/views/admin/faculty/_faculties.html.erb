@@ -1,0 +1,34 @@
+<table class="dictionary_table">
+  <tr class="title_string">
+    <td>
+      Название
+    </td>
+  </tr>
+  <% for faculty in @faculties %>
+    <tr>
+      <td>
+        <%= faculty.name %>
+      </td>
+      <td>
+        <%= button_to("показать", { :controller => 'admin/faculty', :action => 'show', :id => faculty }, :class => "tool_button", :method => :get) %>
+      </td>
+      <td>
+        <%= button_to("удалить", { :controller => 'admin/faculty', :action => 'destroy', :id => faculty }, :class => "tool_button", :method => :delete) %>
+      </td>
+      <td>
+        <%= button_to("изменить", { :controller => 'admin/faculty', :action => 'edit', :id => faculty }, :class => "tool_button", :method => :get) %>
+      </td>
+    <tr>
+  <% end %>
+  <tr>
+    <td>
+      <%= button_to("добавить", { :controller => 'admin/faculty', :action => 'new' }, :class => "admin_button small", :method => :get) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to("назад", { :controller => '/pages/admin', :action => 'index' }, :class => "return_link") %>
+    </td>
+  </tr>
+</table>
+

@@ -1,0 +1,19 @@
+<table>
+  <% for chair in @chairs %>
+    <tr>
+      <td>
+        <%= chair.name %>
+      </td>
+      <td>
+        <%= button_to("показать", { :controller => 'admin/chair', :action => 'show', :id => chair }, :method => :get) %>
+      </td>
+      <td>
+        <%= button_to("удалить", { :controller => 'admin/chair', :action => 'destroy', :id => chair }, :method => :delete) %>
+      </td>
+      <td>
+        <%= button_to("изменить", { :controller => 'admin/chair', :action => 'chair', :id => chair }, :method => :get) %>
+      </td>
+    <tr>
+  <% end %>
+</table>
+<%= button_to("добавить", { :controller => '/admin/chair', :action => 'new' }, :method => :get) %>
